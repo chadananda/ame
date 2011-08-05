@@ -1,0 +1,5 @@
+name = Administration Menu Edit
+description = Simplify the Admin Menu
+package = "* KOC"
+dependencies[] = admin_menu
+core = 6.x

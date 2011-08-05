@@ -1,0 +1,34 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Admin Menu Editor stub
+ *
+ * Site specific hooks
+ */
+ 
+ 
+ /*
+  * Hook_menu_alter to override messy admin menus
+  */
+ 
+ function ame_menu_alter(&$items) { 
+  $default = array(
+   'content' => array('weight' => -20, 'title' => 'Content'),
+   'build' => array('weight' => -18, 'title' => 'Build'),
+   'settings' => array('weight' => -16, 'title' => 'Settings'),
+   'reports' => array('weight' => -14, 'title' => 'Reports'),
+   'user' => array('weight' => -12, 'title' => 'Users'),
+   'help' => array('weight' => -10, 'title' => 'Help'),  
+  );
+  
+  $values = variable_get('admin_menu_edit_values', $default);
+  
+  foreach ($values as $item => $details) {
+   $items['admin/'. $item]['weight'] = $details['weight'];
+   $items['admin/'. $item]['title'] = $details['title'];  
+  } 
+  
+  return $items;  
+}
